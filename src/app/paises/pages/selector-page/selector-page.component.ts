@@ -13,8 +13,9 @@ import { switchMap, tap } from 'rxjs';
 export class SelectorPageComponent implements OnInit {
 
   miFormulario: FormGroup = this.fb.group({
-    region: ['', Validators.required],
-    pais: ['', Validators.required]
+    region  : ['', Validators.required],
+    pais    : ['', Validators.required],
+    frontera: ['', Validators.required],
   })
 
   regiones: string[] = []
@@ -34,9 +35,13 @@ export class SelectorPageComponent implements OnInit {
         switchMap( region => this.paisesService.getPaisesPorRegion(region))
       )
       .subscribe(paises => {
-        this.paises = paises
-        
+        this.paises = paises     
       })
+
+      this.miFormulario.get('pais')?.valueChanges
+        .subscribe(codigo => {
+          console.log(codigo);
+        })
   }
 
   guardar() {

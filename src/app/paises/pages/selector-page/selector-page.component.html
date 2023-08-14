@@ -9,7 +9,7 @@
             <label class="form-label">Continente</label>
             <select class="form-control"
                     formControlName="region">
-                <option value=""> -- Selecciones Continente -- </option>
+                <option value=""> -- Seleccione Continente -- </option>
                 <option *ngFor="let region of regiones"
                         [value]="region | lowercase"> {{region}} </option>
             </select>
@@ -22,9 +22,22 @@
             <label class="form-label">País</label>
             <select class="form-control"
                     formControlName="pais">
-                <option value=""> -- Selecciones País -- </option>
+                <option value=""> -- Seleccione País -- </option>
                 <option *ngFor="let pais of paises"
                         [value]="pais.cca3"> {{pais.name.common}} </option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Fronteras -->
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Fronteras:</label>
+            <select class="form-control"
+                    formControlName="frontera">
+                <option value=""> -- Seleccione el País Fronterizo -- </option>
+                <!-- <option *ngFor="let pais of paises"
+                        [value]="pais.cca3"> {{pais.name.common}} </option> -->
             </select>
         </div>
     </div>
